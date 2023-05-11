@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import filedialog
 from tkinter import messagebox
+from tkinter.font import Font
 import pydicom
 import cv2
 from PIL import Image,ImageTk
@@ -206,11 +207,11 @@ def herramientas():
     global Clicks
     #Botones Herramientas
     if Clicks==0:
-        botonPaciente.grid(column=0, row = 2, padx=10)
-        botonSelec.grid(column=0,row=3,padx=10)
-        botonDetect.grid(column=0,row=4,padx=10)
-        botonSegmentar.grid(column=0,row=5,padx=10)
-        botonNotas.grid(column=0, row = 6, padx=10)
+        botonPaciente.grid(column=0, row = 2, padx=(20,5), pady=(30,10))
+        botonSelec.grid(column=0,row=3,padx=(20,5), pady=(0,10))
+        botonDetect.grid(column=0,row=4,padx=(20,5), pady=(0,10))
+        botonSegmentar.grid(column=0,row=5,padx=(20,5), pady=(0,10))
+        botonNotas.grid(column=0, row = 6, padx=(20,5))
         Clicks+=1
     else:
         botonSegmentar.grid_remove()
@@ -270,13 +271,13 @@ def on_closing():
 
 
 # Cargar imagen DICOM
-ds = pydicom.dcmread('./Arce/ARCE0SM35Y.dcm')
+ds = pydicom.dcmread('./RX/EUST29594W.dcm')
 # Convertir DICOM a Array
 img = (ds.pixel_array)
 # Normalizar los valores del array
 imgNorm = (255-(img / img.max()*255)).astype('uint8')
 # Crear imagen de array
-scale_percent = 10 # percent of original size
+scale_percent = 20 # percent of original size
 width = int(imgNorm.shape[1] * scale_percent / 100)
 height = int(imgNorm.shape[0] * scale_percent / 100)
 dim = (width, height)
@@ -315,15 +316,17 @@ vpNotas.grid(column=0,row=2)
 
 
 #Butones
-botonEditar=ttk.Button(vpButones,text='Editar',command=herramientas)
-botonEditar.grid(column=0,row=0,padx=(0,10))
-botonClas=ttk.Button(vpButones,text='Clasificar',command=clasificar)
-botonClas.grid(column=1,row=0,padx=(0,10))
-botonImp=ttk.Button(vpButones,text='Implantes')
-botonImp.grid(column=2,row=0,padx=(0,10))
-botonSave=ttk.Button(vpButones,text='Guardar', command=guardar)
-botonSave.grid(column=3,row=0,padx=(0,10))
-botonHelp=ttk.Button(vpButones,text='Ayuda', command=ayuda)
+s = ttk.Style()
+s.configure('my.TButton', font=('Helvetica', 16,'bold'))
+botonEditar=ttk.Button(vpButones,text='Editar',command=herramientas,style='my.TButton')
+botonEditar.grid(column=0,row=0,padx=(30,30))
+botonClas=ttk.Button(vpButones,text='Clasificar',command=clasificar,style='my.TButton')
+botonClas.grid(column=1,row=0,padx=(0,30))
+botonImp=ttk.Button(vpButones,text='Implantes',style='my.TButton')
+botonImp.grid(column=2,row=0,padx=(0,30))
+botonSave=ttk.Button(vpButones,text='Guardar', command=guardar,style='my.TButton')
+botonSave.grid(column=3,row=0,padx=(0,30))
+botonHelp=ttk.Button(vpButones,text='Ayuda', command=ayuda,style='my.TButton')
 botonHelp.grid(column=4,row=0,padx=(0,10))
 
 #Botones Herramientas

@@ -297,7 +297,6 @@ root.title('Pagina Principal')
 root.iconbitmap("./hueso.ico")
 root.protocol("WM_DELETE_WINDOW", on_closing)
 
-
 # Entrys globales
 entryNombre=tk.Entry()
 entryNombre2=tk.Entry()
@@ -313,7 +312,6 @@ vpImagen=tk.Frame(root)
 vpImagen.grid(column=0,row=1)
 vpNotas=tk.Frame(root)
 vpNotas.grid(column=0,row=2)
-
 
 #Butones
 s = ttk.Style()
@@ -345,7 +343,6 @@ rx = ImageTk.PhotoImage(image=im)
 canvas = tk.Canvas(vpImagen,width=width,height=height)
 canvas.grid(column=1,row=1,rowspan=9,columnspan=8,sticky='nsew')
 imagen=canvas.create_image(0, 0, image=rx, anchor=tk.NW)
-
 
 # Main Loop
 root.mainloop()

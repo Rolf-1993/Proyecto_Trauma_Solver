@@ -430,3 +430,4 @@ imagen=canvas.create_image(0, 0, image=rx, anchor=tk.NW)
 root.mainloop()
 
 
+print('kk')

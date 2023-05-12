@@ -1,7 +1,6 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import filedialog
-from tkinter import messagebox
 import pydicom
 import cv2
 from PIL import Image,ImageTk
@@ -279,33 +278,6 @@ def infoPaciente():
         entryFecha2.insert(0,entryFecha.get())
         entryFecha2.grid(column=1,row=2,pady=(10,0))
         ClicksNotas=0
-def area_seleccion():
-    global rect, contador_clicks
-    respuesta = messagebox.askquestion('Area seleccion', '¿Estás seguro de que esta es el área correcta?')
-    if respuesta == 'yes':
-        canvas.delete(rect)
-        contador_clicks=0
-    else:
-        canvas.delete(rect)
-        contador_clicks=0
-        BotonRect()      
-def rectangulo(event):
-    global x1,y1,x2,y2,contador_clicks,h,w, rect
-    if contador_clicks==0:
-        x1=event.x
-        y1=event.y
-        contador_clicks+=1
-    elif contador_clicks==1:
-        x2=event.x
-        y2=event.y
-        contador_clicks+=1
-        h=y2-y1
-        w=x2-x1
-        rect = canvas.create_rectangle(x1, y1, x1+w, y1+h, fill='blue', stipple='gray25')
-        canvas.itemconfig(rect, fill="#0000FF")
-        area_seleccion()
-def BotonRect():
-    canvas.bind("<Button-1>",rectangulo)
 def herramientas():
     print("Ancho:", root.winfo_width(), "Alto:", root.winfo_height())
     global Clicks
@@ -396,6 +368,30 @@ def ayuda():
 def on_closing():
     if tk.messagebox.askokcancel("Cerrar ventana", "¿Estás seguro de que quieres cerrar la ventana?"):
         root.destroy()
+def rectangulo(event):
+    global x1,y1,x2,y2,contador_clicks,h,w, rect
+    if contador_clicks==0:
+        x1=event.x
+        y1=event.y
+        botonSelec.config(state="disabled")
+        contador_clicks+=1
+    elif contador_clicks==1:
+        x2=event.x
+        y2=event.y
+        botonSelec.config(state="disabled")
+        contador_clicks+=1
+        h=y2-y1
+        w=x2-x1
+        rect = canvas.create_rectangle(x1, y1, x1+w, y1+h, fill='blue', stipple='gray25')
+        canvas.itemconfig(rect, fill="#0000FF80")
+
+    else:
+        botonSelec.config(state="normal")
+        contador_clicks+=1
+def BotonRect():
+    canvas.bind("<Button-1>",rectangulo)
+    #botonROIreset.grid(column=3,row=9)
+    #botonROIsig.grid(column=5,row=9)
 
 #Variables para Funciones
 Clicks=0

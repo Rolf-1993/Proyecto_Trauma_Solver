@@ -240,44 +240,44 @@ def clasificar():
 
     clasificacion.mainloop()
 def infoPaciente():
-    global entryNombre, entryNombre2, entryFecha, entryFecha2, entryEdad, entryEdad2, ClicksNotas
+    global entryNombre, entryNombre2, entryFecha, entryFecha2, entryEdad, entryEdad2, ClicksNotas, custom_font
     def TerminarPaciente():
         paciente.withdraw()
     paciente=tk.Toplevel()
     paciente.title('Información del Paciente')
     paciente.iconbitmap("./hueso.ico")
     #Etiquetas
-    nombrePaciente=tk.Label(paciente,text='Nombre del Paciente:')
+    nombrePaciente=tk.Label(paciente,text='Nombre del Paciente:', font=custom_font)
     nombrePaciente.grid(column=0,row=0,pady=(10,0))
-    edadPaciente=tk.Label(paciente,text='Edad del Paciente')
+    edadPaciente=tk.Label(paciente,text='Edad del Paciente', font=custom_font)
     edadPaciente.grid(column=0,row=1,pady=(10,0))
-    fecha=tk.Label(paciente,text='Fecha:')
+    fecha=tk.Label(paciente,text='Fecha:', font=custom_font)
     fecha.grid(column=0,row=2)
     #Buton
-    botonListo=tk.Button(paciente,text='Listo',command=TerminarPaciente)
+    botonListo=tk.Button(paciente,text='Listo',command=TerminarPaciente, font=custom_font)
     botonListo.grid(column=0,row=5, pady=(20,20),padx=(130,0))
 
     if ClicksNotas==0:
-        entryNombre=tk.Entry(paciente)
+        entryNombre=tk.Entry(paciente, font=custom_font)
         entryNombre.insert(0,entryNombre2.get())
-        entryNombre.grid(column=1,row=0,pady=(10,0))
-        entryEdad=tk.Entry(paciente)
+        entryNombre.grid(column=1,row=0,pady=(10,0), padx=(0,10))
+        entryEdad=tk.Entry(paciente, font=custom_font)
         entryEdad.insert(0,entryEdad2.get())
-        entryEdad.grid(column=1,row=1,pady=(10,0))
-        entryFecha=tk.Entry(paciente)
+        entryEdad.grid(column=1,row=1,pady=(10,0), padx=(0,10))
+        entryFecha=tk.Entry(paciente, font=custom_font)
         entryFecha.insert(0,entryFecha2.get())
-        entryFecha.grid(column=1,row=2,pady=(10,0))
+        entryFecha.grid(column=1,row=2,pady=(10,0), padx=(0,10))
         ClicksNotas+=1
     else:
-        entryNombre2 = tk.Entry(paciente)
+        entryNombre2 = tk.Entry(paciente, font=custom_font)
         entryNombre2.insert(0,entryNombre.get())
-        entryNombre2.grid(column=1,row=0,pady=(10,0))
-        entryEdad2 = tk.Entry(paciente)
+        entryNombre2.grid(column=1,row=0,pady=(10,0), padx=(0,10))
+        entryEdad2 = tk.Entry(paciente, font=custom_font)
         entryEdad2.insert(0,entryEdad.get())
-        entryEdad2.grid(column=1,row=1)
-        entryFecha2=tk.Entry(paciente)
+        entryEdad2.grid(column=1,row=1, padx=(0,10))
+        entryFecha2=tk.Entry(paciente, font=custom_font)
         entryFecha2.insert(0,entryFecha.get())
-        entryFecha2.grid(column=1,row=2,pady=(10,0))
+        entryFecha2.grid(column=1,row=2,pady=(10,0), padx=(0,10))
         ClicksNotas=0
 def area_seleccion():
     global rect, contador_clicks
@@ -339,7 +339,7 @@ def guardar():
         imagen.save('Imagen Trauma Solver.png')
         root.destroy()
 def notas():
-    global texto_ingresado
+    global texto_ingresado, custom_font
     txtnotas = tk.Tk()
     txtnotas.title("Notas quirurgicas")
     txtnotas.iconbitmap("./hueso.ico")
@@ -351,11 +351,11 @@ def notas():
         txtnotas.destroy()
 
     # Widget de texto multilínea
-    cuadro_texto = tk.Text(txtnotas, wrap="word", height=10)
+    cuadro_texto = tk.Text(txtnotas, wrap="word", height=10, font=custom_font)
     cuadro_texto.grid(row=0, column=0, padx=10, pady=10)
 
     # Botón de guardar
-    boton_guardar = tk.Button(txtnotas, text="Guardar", command=guardar_texto)
+    boton_guardar = tk.Button(txtnotas, text="Guardar", command=guardar_texto, font=custom_font)
     boton_guardar.grid(row=1, column=0, padx=10, pady=10)
 def SubirArchivo():
     global rx,im
@@ -403,6 +403,7 @@ texto_ingresado = ""
 ClicksNotas=0
 nombre=''
 contador_clicks = 0
+custom_font = ('Helvetica', 14)
 
 #Ventana Principal
 root=tk.Tk()
@@ -432,15 +433,15 @@ vpExtras.grid(column=0,row=3)
 s = ttk.Style()
 s.configure('my.TButton', font=('Helvetica', 16,'bold'))
 botonEditar=ttk.Button(vpButones,text='Editar',command=herramientas,style='my.TButton')
-botonEditar.grid(column=0,row=0,padx=(30,30))
+botonEditar.grid(column=0,row=0,padx=(53,50))
 botonClas=ttk.Button(vpButones,text='Clasificar',command=clasificar,style='my.TButton')
-botonClas.grid(column=1,row=0,padx=(0,30))
+botonClas.grid(column=1,row=0,padx=(0,50))
 botonImp=ttk.Button(vpButones,text='Implantes',style='my.TButton')
-botonImp.grid(column=2,row=0,padx=(0,30))
+botonImp.grid(column=2,row=0,padx=(0,50))
 botonSave=ttk.Button(vpButones,text='Guardar', command=guardar,style='my.TButton')
-botonSave.grid(column=3,row=0,padx=(0,30))
+botonSave.grid(column=3,row=0,padx=(0,50))
 botonHelp=ttk.Button(vpButones,text='Ayuda',style='my.TButton',command=ayuda)
-botonHelp.grid(column=4,row=0,padx=(0,10))
+botonHelp.grid(column=4,row=0,padx=(0,50))
 botonSelecArchivo=ttk.Button(vpExtras,text='Seleccionar archivo', command=SubirArchivo,style='my.TButton')
 botonSelecArchivo.grid(column=2,row=0,padx=(10,10), pady=(10,15))
 

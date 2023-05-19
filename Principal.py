@@ -241,14 +241,14 @@ def clasificar():
 
     clasificacion.mainloop()
 def infoPaciente():
-    global entryNombre, entryNombre2, entryFecha, entryFecha2, entryEdad, entryEdad2, ClicksNotas
+    global entryNombre, entryNombre2, entryFecha, entryFecha2, entryEdad, entryEdad2, ClicksNotas, custom_font
     def TerminarPaciente():
         paciente.withdraw()
     paciente=tk.Toplevel()
     paciente.title('Información del Paciente')
     paciente.iconbitmap("./hueso.ico")
     #Etiquetas
-    nombrePaciente=tk.Label(paciente,text='Nombre del Paciente:')
+    nombrePaciente=tk.Label(paciente,text='Nombre del Paciente:', font=custom_font)
     nombrePaciente.grid(column=0,row=0,pady=(10,0))
     nombrePaciente.config(font=("Helvetica", 16, 'bold'))
     edadPaciente=tk.Label(paciente,text='Edad del Paciente')
@@ -419,6 +419,7 @@ texto_ingresado = ""
 ClicksNotas=0
 nombre=''
 contador_clicks = 0
+custom_font = ('Helvetica', 14)
 
 #Ventana Principal
 root=tk.Tk()

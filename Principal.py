@@ -5,6 +5,7 @@ from tkinter import messagebox
 import pydicom
 import cv2
 from PIL import Image,ImageTk
+import numpy as np 
 def clasificar():
     def ClasFinal(valor):
         print(valor)
@@ -78,9 +79,9 @@ def clasificar():
         botonRegresar.place(x=0,y=0)   
     def vent32 ():
         tk.Label(clasificacion, image=fondo32tk).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonSimple = tk.Button(clasificacion, text = 'Simple', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=vent32A)
-        botonCuna = tk.Button(clasificacion, text = 'Cuña', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=vent32B)
-        botonMultifrag = tk.Button(clasificacion, text = 'Multifragmentaria', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=vent32C)
+        botonSimple = tk.Button(clasificacion, text = 'Simple', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=vent32A)
+        botonCuna = tk.Button(clasificacion, text = 'Cuña', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=vent32B)
+        botonMultifrag = tk.Button(clasificacion, text = 'Multifragmentaria', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=vent32C)
         botonSimple.place(x=295,y=122)
         botonCuna.place(x=302,y=330)
         botonMultifrag.place(x=240,y=530)
@@ -88,26 +89,26 @@ def clasificar():
         botonRegresar.place(x=0,y=0)
     def vent32A ():
         tk.Label(clasificacion, image=fondo32Atk ).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonSpiral = tk.Button(clasificacion, text = 'En espiral', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonSpiral.cget('text')))
-        botonOblique = tk.Button(clasificacion, text = 'Oblicua (>30°)', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonOblique.cget('text')))
-        botonTransverse = tk.Button(clasificacion, text = 'Transversal (<30°)', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonTransverse.cget('text')))
-        botonSpiral.place(x=280,y=122)
-        botonOblique.place(x=260,y=330)
-        botonTransverse.place(x=240,y=530)
+        botonSpiral = tk.Button(clasificacion, text = '32A.1', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonSpiral.cget('text')))
+        botonOblique = tk.Button(clasificacion, text = '32A.2', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonOblique.cget('text')))
+        botonTransverse = tk.Button(clasificacion, text = '32A.3', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonTransverse.cget('text')))
+        botonSpiral.place(x=295,y=122)
+        botonOblique.place(x=295,y=330)
+        botonTransverse.place(x=295,y=530)
         botonRegresar = tk. Button (clasificacion, text = 'Regresar', font = ('Canva Sans', 17,'bold'),  fg='#ffffff', bg = '#4a4a4a', cursor='hand2', command=vent32)
         botonRegresar.place(x=0,y=0)
     def vent32B ():
         tk.Label(clasificacion, image=fondo32Btk ).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonIntact32B = tk.Button(clasificacion, text = ' Cuña intacta', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonIntact32B.cget('text')))
-        botonFragment32B = tk.Button(clasificacion, text = 'Cuña fragmentaria', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonFragment32B.cget('text')))
-        botonIntact32B.place(x=250,y=160)
-        botonFragment32B.place(x=222,y=465)
+        botonIntact32B = tk.Button(clasificacion, text = ' 32B.1', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonIntact32B.cget('text')))
+        botonFragment32B = tk.Button(clasificacion, text = '32B.2', relief= 'flat', font=('Canva Sans', 18,'bold'), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonFragment32B.cget('text')))
+        botonIntact32B.place(x=295,y=160)
+        botonFragment32B.place(x=295,y=465)
         botonRegresar = tk. Button (clasificacion, text = 'Regresar', font = ('Canva Sans', 17,'bold'),  fg='#ffffff', bg = '#4a4a4a', cursor='hand2', command=vent32)
         botonRegresar.place(x=0,y=0)
     def vent32C ():
         tk.Label(clasificacion, image=fondo32Ctk ).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonIntact32C = tk.Button(clasificacion, text = ' Segmentaria intacta', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonIntact32C.cget('text')))
-        botonFragment32C = tk.Button(clasificacion, text = 'Segmentaria fragmentaria', relief= 'flat', font=('Canva Sans', 17), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonFragment32C.cget('text')))
+        botonIntact32C = tk.Button(clasificacion, text = ' 32C.1', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonIntact32C.cget('text')))
+        botonFragment32C = tk.Button(clasificacion, text = '32c.2', relief= 'flat', font=('Canva Sans', 17), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonFragment32C.cget('text')))
         botonIntact32C.place(x=215,y=160)
         botonFragment32C.place(x=184,y=465)
         botonRegresar = tk. Button (clasificacion, text = 'Regresar', font = ('Canva Sans', 17,'bold'),  fg='#ffffff', bg = '#4a4a4a', cursor='hand2', command=vent32)
@@ -249,35 +250,46 @@ def infoPaciente():
     #Etiquetas
     nombrePaciente=tk.Label(paciente,text='Nombre del Paciente:')
     nombrePaciente.grid(column=0,row=0,pady=(10,0))
+    nombrePaciente.config(font=("Helvetica", 16, 'bold'))
     edadPaciente=tk.Label(paciente,text='Edad del Paciente')
     edadPaciente.grid(column=0,row=1,pady=(10,0))
+    edadPaciente.config(font=("Helvetica", 16,'bold'))
     fecha=tk.Label(paciente,text='Fecha:')
     fecha.grid(column=0,row=2)
+    fecha.config(font=("Helvetica", 16,'bold'))
     #Buton
-    botonListo=tk.Button(paciente,text='Listo',command=TerminarPaciente)
-    botonListo.grid(column=0,row=5, pady=(20,20),padx=(130,0))
+    s = ttk.Style()
+    s.configure('my.TButton', font=('Helvetica', 16,'bold'))
+    botonListo=ttk.Button(paciente,text='Listo',command=TerminarPaciente, style='my.TButton')
+    botonListo.grid(column=1,row=5, pady=(20,20),padx=(0,220))
 
     if ClicksNotas==0:
         entryNombre=tk.Entry(paciente)
+        entryNombre.configure(font=('Helvetica',16))
         entryNombre.insert(0,entryNombre2.get())
-        entryNombre.grid(column=1,row=0,pady=(10,0))
+        entryNombre.grid(column=1,row=0,pady=(10,0),padx=(0,20))
         entryEdad=tk.Entry(paciente)
+        entryEdad.configure(font=('Helvetica',16))
         entryEdad.insert(0,entryEdad2.get())
-        entryEdad.grid(column=1,row=1,pady=(10,0))
+        entryEdad.grid(column=1,row=1,pady=(10,0),padx=(0,20))
         entryFecha=tk.Entry(paciente)
+        entryFecha.configure(font=('Helvetica',16))
         entryFecha.insert(0,entryFecha2.get())
-        entryFecha.grid(column=1,row=2,pady=(10,0))
+        entryFecha.grid(column=1,row=2,pady=(10,0),padx=(0,20))
         ClicksNotas+=1
     else:
         entryNombre2 = tk.Entry(paciente)
+        entryNombre2.configure(font=('Helvetica',16))
         entryNombre2.insert(0,entryNombre.get())
-        entryNombre2.grid(column=1,row=0,pady=(10,0))
+        entryNombre2.grid(column=1,row=0,pady=(10,0),padx=(0,20))
         entryEdad2 = tk.Entry(paciente)
+        entryEdad2.configure(font=('Helvetica',16))
         entryEdad2.insert(0,entryEdad.get())
-        entryEdad2.grid(column=1,row=1)
+        entryEdad2.grid(column=1,row=1,padx=(0,20))
         entryFecha2=tk.Entry(paciente)
+        entryFecha2.configure(font=('Helvetica',16))
         entryFecha2.insert(0,entryFecha.get())
-        entryFecha2.grid(column=1,row=2,pady=(10,0))
+        entryFecha2.grid(column=1,row=2,pady=(10,0),padx=(0,20))
         ClicksNotas=0
 def area_seleccion():
     global rect, contador_clicks
@@ -328,7 +340,7 @@ def guardar():
     global im
         # Abre una ventana de diálogo de selección de carpeta
     ruta_carpeta = filedialog.askdirectory()
-
+    
     # Crea una imagen utilizando la biblioteca PIL
     imagen = im
     # Guarda la imagen en la carpeta seleccionada
@@ -339,24 +351,28 @@ def guardar():
         imagen.save('Imagen Trauma Solver.png')
         root.destroy()
 def notas():
-    global texto_ingresado
+    global s, texto_ingresado, rx
     txtnotas = tk.Tk()
     txtnotas.title("Notas quirurgicas")
     txtnotas.iconbitmap("./hueso.ico")
     # Función para guardar el texto ingresado en una variable
     def guardar_texto():
-        global texto_ingresado
+        global rx, texto_ingresado
         texto_ingresado = cuadro_texto.get("1.0", "end-1c")
         print(texto_ingresado)
         txtnotas.destroy()
 
     # Widget de texto multilínea
     cuadro_texto = tk.Text(txtnotas, wrap="word", height=10)
+    cuadro_texto.configure(font=('Helvetica',16),height=20,width=40)
     cuadro_texto.grid(row=0, column=0, padx=10, pady=10)
 
     # Botón de guardar
-    boton_guardar = tk.Button(txtnotas, text="Guardar", command=guardar_texto)
-    boton_guardar.grid(row=1, column=0, padx=10, pady=10)
+    s=ttk.Style()
+    s.configure('my.TButton',font=('Helvetica',16,'bold'))
+    boton_guardar = ttk.Button(txtnotas, text="Guardar",command=guardar_texto, style='my.TButton')
+    boton_guardar.configure(style='my.TButton')
+    boton_guardar.grid(row=1, column=0, padx=(10,10), pady=(10,20))
 def SubirArchivo():
     global rx,im
     botonSelecArchivo.destroy()
@@ -409,6 +425,10 @@ root=tk.Tk()
 root.title('Pagina Principal')
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.iconbitmap("./hueso.ico")
+root.resizable(width=False, height=False)
+w_pant = (root.winfo_screenwidth())/4
+h_pant = (root.winfo_screenheight())/8
+root.geometry('+'+ str(int(w_pant))+'+'+str(int(h_pant)))
 
 # Entrys globales
 entryNombre=tk.Entry()
@@ -432,15 +452,15 @@ vpExtras.grid(column=0,row=3)
 s = ttk.Style()
 s.configure('my.TButton', font=('Helvetica', 16,'bold'))
 botonEditar=ttk.Button(vpButones,text='Editar',command=herramientas,style='my.TButton')
-botonEditar.grid(column=0,row=0,padx=(30,30))
+botonEditar.grid(column=0,row=0,padx=(53,50))
 botonClas=ttk.Button(vpButones,text='Clasificar',command=clasificar,style='my.TButton')
-botonClas.grid(column=1,row=0,padx=(0,30))
+botonClas.grid(column=1,row=0,padx=(0,50))
 botonImp=ttk.Button(vpButones,text='Implantes',style='my.TButton')
-botonImp.grid(column=2,row=0,padx=(0,30))
+botonImp.grid(column=2,row=0,padx=(0,50))
 botonSave=ttk.Button(vpButones,text='Guardar', command=guardar,style='my.TButton')
-botonSave.grid(column=3,row=0,padx=(0,30))
+botonSave.grid(column=3,row=0,padx=(0,50))
 botonHelp=ttk.Button(vpButones,text='Ayuda',style='my.TButton',command=ayuda)
-botonHelp.grid(column=4,row=0,padx=(0,10))
+botonHelp.grid(column=4,row=0,padx=(0,50))
 botonSelecArchivo=ttk.Button(vpExtras,text='Seleccionar archivo', command=SubirArchivo,style='my.TButton')
 botonSelecArchivo.grid(column=2,row=0,padx=(10,10), pady=(10,15))
 
@@ -455,10 +475,8 @@ botonPaciente = ttk.Button(vpImagen,text='Info. Paciente', style='my.TButton', c
 sBotones=ttk.Separator(root,orient='horizontal')
 sBotones.grid
 
-#Imagen
-
 # Cargar imagen de fondo
-img = cv2.imread('./Fondos/imagen_inicial.png')
+img = cv2.imread('./Imagenes/imagen_inicial.png')
 # Crear imagen de array
 scale_percent = 100 # percent of original size
 width = int(img.shape[1] * scale_percent / 100)

@@ -5,10 +5,124 @@ from tkinter import messagebox
 import pydicom
 import cv2
 from PIL import Image,ImageTk
+import webbrowser
+
 def clasificar():
     def ClasFinal(valor):
         print(valor)
-        clasificacion.destroy()
+        #Femur Proximal
+        if valor=='31A1.1':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/trochanteric-fracture-isolated-single-trochanteric" 
+            webbrowser.open(enlace)
+        elif valor=='31A1.2':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/trochanteric-fracture-simple-pertrochanteric-two-part" 
+            webbrowser.open(enlace)
+        elif valor=='31A1.3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/trochanteric-fracture-simple-pertrochanteric-with-posteromedial-involvement" 
+            webbrowser.open(enlace)
+        elif valor=='31A2.2' or valor=='31A2.3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/trochanteric-fracture-multifragmentary-pertrochanteric-incompetent-lateral-wall" 
+            webbrowser.open(enlace)
+        elif valor=='31A3.1' or valor=='31A3.2'or valor=='31A3.3'  :
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/trochanteric-fracture-intertrochanteric" 
+            webbrowser.open(enlace)
+        elif valor=='31B1.1' or valor=='31B1.2':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-neck-fracture-subcapital-impacted-or-nondisplaced"
+            webbrowser.open(enlace)
+        elif valor=='31B1.3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-neck-fracture-subcapital-displaced"
+            webbrowser.open(enlace)
+        elif valor=='31B2.1' or valor=='31B2.2':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-neck-fracture-transcervical-simple-or-multifragmentary"
+            webbrowser.open(enlace) 
+        elif valor=='31B2.3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-neck-fracture-transcervical-shear-fracture"
+            webbrowser.open(enlace) 
+        elif valor=='31B3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-neck-fracture-basicervical" 
+            webbrowser.open(enlace)
+        elif valor=='31C1.1' or valor=='31C1.2' or valor=='31C1.3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-head-fracture-split" 
+            webbrowser.open(enlace)
+        elif valor=='31C2.1' or valor=='31C2.2' or valor=='31C2.3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/proximal-femur/femoral-head-fracture-depression" 
+            webbrowser.open(enlace)
+        ###Faltaron todas las f
+        #Femur medial
+        elif valor=='32A1':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/simple-spiral-proximal-1-3-fractures" 
+            webbrowser.open(enlace)
+        elif valor=='32A2':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/simple-oblique-proximal-1-3-fractures" 
+            webbrowser.open(enlace)
+        elif valor=='32A3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/simple-transverse-proximal-1-3-fractures" 
+            webbrowser.open(enlace)
+        elif valor=='32B2':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/simple-transverse-proximal-1-3-fractures" 
+            webbrowser.open(enlace)
+        elif valor=='32B3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/wedge-fragmentary-distal-1-3-fractures" 
+            webbrowser.open(enlace)
+        elif valor=='32C2':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/wedge-fragmentary-distal-1-3-fractures" 
+            webbrowser.open(enlace)
+        elif valor=='32C3':
+            enlace = "https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/femoral-shaft/wedge-fragmentary-distal-1-3-fractures" 
+            webbrowser.open(enlace)
+        #Femur Distal
+        elif valor=='33A1.1' or valor=='33A1.2':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/extraarticular-fracture-avulsion'
+            webbrowser.open(enlace)
+        elif valor=='33A2.1' or valor=='33A2.2' or valor=='33A2.3': 
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/extraarticular-fracture-simple'
+            webbrowser.open(enlace)
+        elif valor=='33A3.2': 
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/extraarticular-fracture-wedge'
+            webbrowser.open(enlace)
+        elif valor=='33A3.3': 
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-lateral-condyle-sagittal-fragmentary'
+            webbrowser.open(enlace) 
+        elif valor=='33B1.1' or valor=='33B1.2' or valor=='33B1.3':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-lateral-condyle-sagittal-simple'
+            webbrowser.open(enlace) 
+        elif valor=='33B1.1' or valor=='33B1.2':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-lateral-condyle-sagittal-simple'
+            webbrowser.open(enlace)  
+        elif valor=='33B1.3':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-lateral-condyle-sagittal-fragmentary'
+            webbrowser.open(enlace)    
+        elif valor=='33B2.1' or valor=='33B2.2':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-medial-condyle-sagittal-simple'
+            webbrowser.open(enlace) 
+        elif valor=='33B2.3':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-medial-condyle-sagittal-fragmentary'
+            webbrowser.open(enlace)
+        elif valor=='33B3.1':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-frontal-coronal-anterior-and-lateral-flake'
+            webbrowser.open(enlace)
+        elif valor=='33B3.2' or valor=='33B3.3':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/partial-articular-fracture-frontal-coronal-posterior-condyle-s'
+            webbrowser.open(enlace) 
+        elif valor=='33C1.1' or valor=='33C1.3':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/complete-articular-fracture-simple-articular-simple-methaphyseal'
+            webbrowser.open(enlace) 
+        elif valor=='33C2.2':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/complete-articular-fracture-simple-articular-intact-or-fragmentary-wedge-metaphyseal'
+            webbrowser.open(enlace) 
+        elif valor=='33C2.3':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/complete-articular-fracture-simple-articular-multifragmentary-metaphyseal'
+            webbrowser.open(enlace) 
+        elif valor=='33C3.1':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/complete-articular-fracture-multifragmentary-articular-simple-metaphyseal'
+            webbrowser.open(enlace) 
+        elif valor=='33C3.2':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/complete-articular-fracture-multifragmentary-articular-wedge-metaphyseal'
+            webbrowser.open(enlace) 
+        elif valor=='33C3.2':
+            enlace='https://surgeryreference.aofoundation.org/orthopedic-trauma/adult-trauma/distal-femur/complete-articular-fracture-multifragmentary-articular-multifragmentary-metaphyseal'
+            webbrowser.open(enlace)
+        #clasificacion.destroy()
     def regvent30():
         clasificacion.destroy()
         clasificar()
@@ -88,28 +202,28 @@ def clasificar():
         botonRegresar.place(x=0,y=0)
     def vent32A ():
         tk.Label(clasificacion, image=fondo32Atk ).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonSpiral = tk.Button(clasificacion, text = 'En espiral', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonSpiral.cget('text')))
-        botonOblique = tk.Button(clasificacion, text = 'Oblicua (>30°)', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonOblique.cget('text')))
-        botonTransverse = tk.Button(clasificacion, text = 'Transversal (<30°)', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonTransverse.cget('text')))
-        botonSpiral.place(x=280,y=122)
-        botonOblique.place(x=260,y=330)
-        botonTransverse.place(x=240,y=530)
+        botonSpiral = tk.Button(clasificacion, text = '32A1', relief= 'flat', font=('Canva Sans', 18), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonSpiral.cget('text')))
+        botonOblique = tk.Button(clasificacion, text = '32A2', relief= 'flat', font=('Canva Sans', 18), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonOblique.cget('text')))
+        botonTransverse = tk.Button(clasificacion, text = '32A3', relief= 'flat', font=('Canva Sans', 18), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonTransverse.cget('text')))
+        botonSpiral.place(x=490,y=110)
+        botonOblique.place(x=490,y=320)
+        botonTransverse.place(x=490,y=535)
         botonRegresar = tk. Button (clasificacion, text = 'Regresar', font = ('Canva Sans', 17,'bold'),  fg='#ffffff', bg = '#4a4a4a', cursor='hand2', command=vent32)
         botonRegresar.place(x=0,y=0)
     def vent32B ():
         tk.Label(clasificacion, image=fondo32Btk ).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonIntact32B = tk.Button(clasificacion, text = ' Cuña intacta', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonIntact32B.cget('text')))
-        botonFragment32B = tk.Button(clasificacion, text = 'Cuña fragmentaria', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonFragment32B.cget('text')))
-        botonIntact32B.place(x=250,y=160)
-        botonFragment32B.place(x=222,y=465)
+        botonIntact32B = tk.Button(clasificacion, text = '32B2', relief= 'flat', font=('Canva Sans', 18), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonIntact32B.cget('text')))
+        botonFragment32B = tk.Button(clasificacion, text = '32B3', relief= 'flat', font=('Canva Sans', 18), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonFragment32B.cget('text')))
+        botonIntact32B.place(x=490,y=160)
+        botonFragment32B.place(x=482,y=462)
         botonRegresar = tk. Button (clasificacion, text = 'Regresar', font = ('Canva Sans', 17,'bold'),  fg='#ffffff', bg = '#4a4a4a', cursor='hand2', command=vent32)
         botonRegresar.place(x=0,y=0)
     def vent32C ():
         tk.Label(clasificacion, image=fondo32Ctk ).place(x = 0, y = 0, relheight = 1, relwidth = 1)
-        botonIntact32C = tk.Button(clasificacion, text = ' Segmentaria intacta', relief= 'flat', font=('Canva Sans', 18), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonIntact32C.cget('text')))
-        botonFragment32C = tk.Button(clasificacion, text = 'Segmentaria fragmentaria', relief= 'flat', font=('Canva Sans', 17), bg ='#b2b2b2', cursor='hand2',command=lambda:ClasFinal(botonFragment32C.cget('text')))
-        botonIntact32C.place(x=215,y=160)
-        botonFragment32C.place(x=184,y=465)
+        botonIntact32C = tk.Button(clasificacion, text = '32C2', relief= 'flat', font=('Canva Sans', 18), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonIntact32C.cget('text')))
+        botonFragment32C = tk.Button(clasificacion, text = '32C3', relief= 'flat', font=('Canva Sans', 17), bg ='#e1e1e1', cursor='hand2',command=lambda:ClasFinal(botonFragment32C.cget('text')))
+        botonIntact32C.place(x=490,y=160)
+        botonFragment32C.place(x=480,y=465)
         botonRegresar = tk. Button (clasificacion, text = 'Regresar', font = ('Canva Sans', 17,'bold'),  fg='#ffffff', bg = '#4a4a4a', cursor='hand2', command=vent32)
         botonRegresar.place(x=0,y=0)
     def vent33 ():
@@ -206,13 +320,13 @@ def clasificar():
     fondo32 = Image.open('./Fondos/ClasDiafisis.png')
     fondo32tk = ImageTk.PhotoImage(fondo32)
     # Fondo clase 32A
-    fondo32A = Image.open('./Fondos/ClasSubDiaf32A.png')
+    fondo32A = Image.open('./Fondos/32A.png')
     fondo32Atk = ImageTk.PhotoImage(fondo32A)
     # Fondo clase 32B
-    fondo32B = Image.open('./Fondos/ClasSubDiaf32B.png')
+    fondo32B = Image.open('./Fondos/32B.png')
     fondo32Btk = ImageTk.PhotoImage(fondo32B)
     # Fondo clase 32C
-    fondo32C = Image.open('./Fondos/ClasSubDiaf32C.png')
+    fondo32C = Image.open('./Fondos/32C.png')
     fondo32Ctk = ImageTk.PhotoImage(fondo32C)
     # Fondo clase 33
     fondo33 = Image.open('./Fondos/ClasDistal.png')
@@ -283,7 +397,6 @@ def area_seleccion():
     global rect, contador_clicks
     respuesta = messagebox.askquestion('Area seleccion', '¿Estás seguro de que esta es el área correcta?')
     if respuesta == 'yes':
-        canvas.delete(rect)
         contador_clicks=0
     else:
         canvas.delete(rect)
@@ -301,8 +414,7 @@ def rectangulo(event):
         contador_clicks+=1
         h=y2-y1
         w=x2-x1
-        rect = canvas.create_rectangle(x1, y1, x1+w, y1+h, fill='blue', stipple='gray25')
-        canvas.itemconfig(rect, fill="#0000FF")
+        rect = canvas.create_rectangle(x1, y1, x1+w, y1+h, outline='blue', stipple='gray25')
         area_seleccion()
 def BotonRect():
     canvas.bind("<Button-1>",rectangulo)
